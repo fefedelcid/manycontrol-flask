@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT app:app --pythonpath=./manycontrol-flask
+web: gunicorn --bind 0.0.0.0:$PORT wsgi:app

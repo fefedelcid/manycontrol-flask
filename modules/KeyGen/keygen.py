@@ -82,33 +82,35 @@ def get_range(keys):
 
 
 def gen_one_key():
-    key = gen_key()
-    while not key['is_valid']:
-        key = gen_key()
-        key['hash'] = hash(f'{key['key']}.{key['created_at']}')
-    return key
+    res = gen_key()
+    while not res['is_valid']:
+        res = gen_key()
+        if res['is_valid']:
+            res['hash'] = hash('{}.{}'.format(res['key'], res['created_at']).replace(' ','.'))
+    return res
 
 
 
 if __name__=='__main__':
-    keys = get_keys(KEYFILE_PATH)
-    if not keys or len(keys)==0:
-        print('keyfile without keys, generating...')
-        keys = []
-        while len(keys)<KEY_COUNT:
-            key = gen_key()
-            if key['is_valid'] == True:
-                keys.append(key)
-        print('valid keys generated successfully')
-
-    min, max = get_range(keys)
-    inc = (max-min)/5
-
-    for key in keys:
-        key = security_level(key, min, inc)
-        key['hash'] = hash(str(key))
-
-
-    with open(KEYFILE_PATH, 'w') as f:
-        dump(keys, f, indent=2, sort_keys=True)
-        print('keyfile updated')
+    # keys = get_keys(KEYFILE_PATH)
+    # if not keys or len(keys)==0:
+    #     print('keyfile without keys, generating...')
+    #     keys = []
+    #     while len(keys)<KEY_COUNT:
+    #         key = gen_key()
+    #         if key['is_valid'] == True:
+    #             keys.append(key)
+    #     print('valid keys generated successfully')
+    #
+    # min, max = get_range(keys)
+    # inc = (max-min)/5
+    #
+    # for key in keys:
+    #     key = security_level(key, min, inc)
+    #     key['hash'] = hash(str(key))
+    #
+    #
+    # with open(KEYFILE_PATH, 'w') as f:
+    #     dump(keys, f, indent=2, sort_keys=True)
+    #     print('keyfile updated')
+    # print(gen_one_key()['hash'])

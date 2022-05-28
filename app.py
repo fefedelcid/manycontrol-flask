@@ -7,4 +7,4 @@ from modules import errorhandler
 
 if __name__=='__main__':
     # Ejecutar servidor
-    app.run()
+    app.run(debug=True)

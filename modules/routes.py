@@ -1,4 +1,4 @@
-from .. import app
+from ..app import app
 from flask import jsonify, request, render_template
 
 default_response = {'message':'endpoint is not set'}

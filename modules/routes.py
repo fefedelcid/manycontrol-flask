@@ -1,5 +1,5 @@
 from .app import app
-from ..KeyGen import get
+from .KeyGen import get
 from flask import jsonify, request, render_template
 
 default_response = {'message':'endpoint is not set'}

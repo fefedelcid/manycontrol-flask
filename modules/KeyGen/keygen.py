@@ -92,6 +92,7 @@ def gen_one_key():
 
 
 if __name__=='__main__':
+    pass
     # keys = get_keys(KEYFILE_PATH)
     # if not keys or len(keys)==0:
     #     print('keyfile without keys, generating...')

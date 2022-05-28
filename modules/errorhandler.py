@@ -1,4 +1,4 @@
-from __main__ import app
+from .app import app
 from flask import jsonify
 
 @app.errorhandler(405) # Method not allowed

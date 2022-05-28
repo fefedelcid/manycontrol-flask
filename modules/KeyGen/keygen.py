@@ -85,7 +85,7 @@ def gen_one_key():
     key = gen_key()
     while not key['is_valid']:
         key = gen_key()
-        key['hash'] = hash(str(key))
+        key['hash'] = hash(key.key)
     return key
 
 

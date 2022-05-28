@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container has-text-centered very-important">
+    <button class="button" type="button" onclick="red()">Amonos</button>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+  var red = ()=>{
+    window.location.href = '/pepe'
+  }
+</script>
+{% endblock %}

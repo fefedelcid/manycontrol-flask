@@ -1,0 +1,26 @@
+.has-margin-top { margin-top:5px; }
+
+.small-wide { max-width:400px; }
+
+.separator {
+  display: block;
+  margin: 25px auto;
+}
+
+.important {
+  color: lightgreen;
+  background-color: black;
+  font-weight: 600;
+  margin: 5px 5px;
+}
+
+.very-important {
+  color: black;
+  font-weight: 700;
+  font-size: 3em;
+}
+
+.big-separator {
+  display: block;
+  margin: 70px auto;
+}

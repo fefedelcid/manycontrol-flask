@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br class="separator">
+<h1 class="has-text-centered has-margin-top">{{ name }} - v{{ ver }}</h1>
+<br class="separator">
+<form class="container is-fluid has-text-centered" method="post">
+  <div class="container">
+    <input class="input has-margin-top small-wide" id="user" type="text" placeholder="Usuario">
+  </div>
+  <div class="container">
+    <input class="input has-margin-top small-wide" id="pass" type="password" placeholder="Contraseña">
+  </div>
+  <br class="separator">
+  <button type="button" class="button is-link has-margin-top"
+          onclick="auth()">Aceptar</button>
+</form>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+  var auth = ()=> {
+    user = document.getElementById("user").value
+    location.href = '/api/get_token/'+user
+  }
+</script>
+{% endblock %}

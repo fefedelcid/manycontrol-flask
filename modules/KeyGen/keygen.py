@@ -37,7 +37,7 @@ def gen_key():
         'key':key,
         'is_valid':(score>=KEY_LEVEL), # 70M ~= 4/1000 (0.004%)
         'fit_level':score,
-        'created_at':datetime.now().strftime('%d/%m/%y-%H:%M:%S')
+        'created_at':datetime.now()#.strftime('%d/%m/%y-%H:%M:%S')
     }
 
 
@@ -85,7 +85,7 @@ def gen_one_key():
     key = gen_key()
     while not key['is_valid']:
         key = gen_key()
-        key['hash'] = hash(key.key)
+        key['hash'] = hash(key.key+key.created_at)
     return key
 
 

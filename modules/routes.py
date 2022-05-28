@@ -16,7 +16,7 @@ def index():
     return get_request_info()
 
 
-@app.route('/api')
+@app.route('/api/keys')
 def api():
     return jsonify(get())
 

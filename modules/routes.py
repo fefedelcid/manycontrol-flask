@@ -16,11 +16,7 @@ def index():
     return get_request_info()
 
 
-@app.route('/api/keys')
-def api():
-    return jsonify(get())
-
-
-@app.route('/play')
-def trolling():
-    return render_template('views/trolling.html')
+@app.route('/api/keygen')
+def get_key():
+    valid_key = get()
+    return render_template('views/token.html', token = valid_key)

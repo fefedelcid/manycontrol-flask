@@ -20,7 +20,14 @@
   font-size: 3em;
 }
 
-.big-separator {
+.title {
   display: block;
   margin: 70px auto;
+  font-weight: 700;
+  font-size: 3em;
+}
+
+.submit {
+  font-weight: 400;
+  font-size: 2em;
 }

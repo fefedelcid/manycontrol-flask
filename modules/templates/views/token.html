@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h1 class="title">Token asignado:</h1>
+  <div class="container">
+    <div class="container">
+      <h1 class="has-text-centered">{{ token['key'] }}</h1>
+    </div>
+    <div class="container">
+      <h2 class="has-text-centered">Fecha de creación:</h2>
+      <h2 class="has-text-centered">{{ token['created_at'] }}</h2>
+    </div>
+  </div>
+  <div class="container">
+    <button class="button submit" type="button" onclick="copy()">Aceptar</button>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+  function copy() {
+  var aux = document.createElement("input");
+  aux.setAttribute("value", {{ token['key'].replace('-', '') }});
+  document.body.appendChild(aux);
+  aux.select();
+  document.execCommand("copy");
+  document.body.removeChild(aux);
+}
+</script>
+{% endblock %}

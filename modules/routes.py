@@ -1,14 +1,6 @@
 from .app import app
 from .KeyGen import get
-from flask import jsonify, request, render_template, response
-
-default_response = {'message':'endpoint is not set'}
-
-def get_request_info():
-    return jsonify({
-        'url': request.url,
-        'method':request.method
-    })
+from flask import jsonify, request, render_template
 
 
 @app.route('/', methods=['GET', 'POST'])

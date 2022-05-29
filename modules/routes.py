@@ -21,3 +21,13 @@ def index():
 def get_key():
     valid_key = get()
     return render_template('views/token.html', token = valid_key)
+
+
+@app.route('/asd')
+@app.route('/asd/<str>')
+def asd(str=None):
+    if str:
+        return jsonify({'message':f'Hola {str}!'})
+    else:
+        return jsonify({'message':'Hola mundo!'})
+    

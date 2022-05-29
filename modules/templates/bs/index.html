@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container has-text-centered">
+  <h1 class="title">
+    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.es%2Fpin%2F580049626996414695%2F&psig=AOvVaw2w71o-38ToG9nWy4E4reqd&ust=1653941296323000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCPjsovHphfgCFQAAAAAdAAAAABAD" alt="bs-icon">
+    Brawl Stars Trophies
+  </h1>
+  <div class="section">
+    Para obtener información sobre qué brawlers deberías subir ingresa tu tag
+    <input id="bs-tag" type="text" class="input" placeholder="#Tu_Tag">
+  </div>
+  <button class="button" onclick="get_trophies()">Aceptar</button>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script type="text/javascript">
+  var get_trophies = ()=>{
+    tag = document.getElementById("bs-tag").value
+    console.log(tag)
+  }
+</script>
+
+{% endblock %}

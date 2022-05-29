@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div class="container has-text-centered very-important">
-    <button class="button" type="button" onclick="red()">Amonos</button>
-  </div>
-{% endblock %}
-
-{% block scripts %}
-<script type="text/javascript">
-  var red = ()=>{
-    window.location.href = '/pepe'
-  }
-</script>
+<section>
+  <h1>Bienvenido a ManyControl</h1>
+  <p>En este momento estamos trabajando para crear el sitio perfecto...</p>
+  <p>Puedes dar un vistazo a alguna de las páginas ya creadas :D</p>
+</section>
+<section>
+  <h2>Generador de Keys</h2>
+  <a href="/temp/keygen" class="button">Vamos</a>
+</section>
 {% endblock %}

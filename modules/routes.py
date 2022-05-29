@@ -17,6 +17,7 @@ def index():
 
 
 @app.route('/api/keygen')
+@app.route('/temp/keygen')
 def get_key():
     valid_key = get()
     return render_template('views/token.html', token = valid_key)

@@ -25,10 +25,10 @@
   text-align: center;
   margin: 70px auto;
   font-weight: 700;
-  font-size: 3em;
+  font-size: 2em;
 }
 
 #over img {
-  margin: 0px auto;
-  display: block;
+  margin: auto;
+  display: inline-block;
 }

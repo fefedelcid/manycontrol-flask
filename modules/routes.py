@@ -13,7 +13,7 @@ def get_request_info():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return get_request_info()
+    return render_template('views/mainpage.html')
 
 
 @app.route('/api/keygen')

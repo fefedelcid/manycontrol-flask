@@ -22,12 +22,13 @@
 
 .title {
   display: block;
+  text-align: center;
   margin: 70px auto;
   font-weight: 700;
   font-size: 3em;
 }
 
 .submit {
-  font-weight: 400;
-  font-size: 2em;
+  margin: 25px auto;
+  text-align: center;
 }

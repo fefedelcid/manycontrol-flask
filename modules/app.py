@@ -7,3 +7,4 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 # importar rutas
 from . import routes
 from . import errorhandler
+from . import bs_endpoints

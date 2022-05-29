@@ -13,16 +13,10 @@
     </div>
   </div>
   <div class="container has-text-centered">
-    <button class="button submit" id="reload" type="button">Generar nuevo</button>
+    <button class="button" onclick="location.reload()" type="button">Intentar de nuevo</button>
   </div>
 </div>
 {% endblock %}
 
 {% block script %}
-<script type="text/javascript">
-  const reload = document.getElementByID('reload')
-  reload.addEventListener('click', _ => {
-    location.reload()
-  }
-</script>
 {% endblock %}

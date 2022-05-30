@@ -2,12 +2,12 @@
 
 {% block content %}
 <div class="container has-text-centered width-75">
-  <h1 class="very-important">{{ player }}</h1>
+  <h1 class="very-important">{{ profile }}</h1>
   {% for brawl in brawlers %}
   <div class="bs-container" style="{{ bg }}">
     <figure class="image is-64x64 is-flex">
       <img class="brawl" src="{{ brawl['img_url'] }}" alt="{{ brawl['name'] }}">
-      <figure class="image is-24x24 is-flex">
+      <figure class="image is-24x24 is-flex has-padding-top">
         <img src="https://cdn.brawlify.com/icon/trophy.png" alt="Trophies">
         <span>{{ brawl['trophies'] }}</span>
       </figure>

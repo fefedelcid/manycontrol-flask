@@ -9,6 +9,7 @@ body {
 .separator {
   display: block;
   margin: 25px auto;
+  padding-left: 10px;
 }
 
 .important {
@@ -42,12 +43,16 @@ body {
 }
 
 .bs-container {
-  border: .7px solid black .375em;
+  border: .7px solid black;
+  border-radius: .375em;
   color: black;
   margin: 15px auto;
+  padding-bottom: 5px;
 }
 
 .brawl {
   border-top-left-radius: .375em;
   margin: 0px 10px 0px 0px;
 }
+
+.has-padding-top { padding-top: 10px; }

@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container has-text-centered width-75">
   {% for brawl in brawlers %}
-  <div class="block has-text-centered">
+  <div class="block" style="{{ bg }}">
     <figure class="image is-64x64 is-flex">
       <img src="{{ brawl['img_url'] }}" alt="{{ brawl['name'] }}">
       <figure class="image is-24x24 is-flex">
@@ -11,7 +11,7 @@
         <span>{{ brawl['trophies'] }}</span>
       </figure>
     </figure>
-    <div class="container">
+    <div class="separator" style="text-align:left;">
       <p class="subtitle">Siguiente meta: <b>{{ brawl['next_goal'] }}</b></p>
       <p>Necesitas ganar {{ brawl['remaining_wins'] }} partidas para llegar a {{ brawl['next_step'] }} trofeos</p>
     </div>

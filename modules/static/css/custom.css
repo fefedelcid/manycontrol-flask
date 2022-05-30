@@ -1,6 +1,7 @@
 .has-margin-top { margin-top:5px; }
 
 .small-wide { max-width:400px; }
+.width-75 { max-width:75%; }
 
 .separator {
   display: block;

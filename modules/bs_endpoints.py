@@ -36,7 +36,7 @@ def get_brawlers(tag):
         brawl['trophies_at_end'] = at_end
         brawl['trophies_losted'] = brawl['trophies']-at_end
 
-    output = [brawlers[i:i+3] for i in range(0, len(brawlers), 3)]
+    output = [brawlers[i:i+2] for i in range(0, len(brawlers), 2)]
     if len(brawlers)>0:
         return render_template('bs/calculator.html', brawlers=brawlers)
 

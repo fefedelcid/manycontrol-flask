@@ -29,7 +29,7 @@ def get_brawlers(tag):
 
         return jsonify(brawlers)
     except:
-        return jsonify('message':'invalid tag')
+        return jsonify({'message':'invalid tag'})
 
 
 @app.route('/bs')

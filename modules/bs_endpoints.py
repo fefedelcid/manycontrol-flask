@@ -13,11 +13,14 @@ def get_brawlers(tag):
     bs = BeautifulSoup(req.content, 'html.parser')
 
     try:
-        brawlers = [{
-            'name':brawl.find('img')['alt'],
-            'trophies':int(brawl.find_all('div')[-1].text),
-            'img_url':brawl.find('img')['src'],
-        } for brawl in bs.find_all('a', class_='brawlerBlock') if int(brawl.find_all('div')[-1].text)>=493]
+        brawlers = []
+        for brawl in bs.find_all('a', class_='brawlerBlock'):
+            if int(brawl.find_all('div')[-1].text)>=493:
+                brawlers.append({
+                    'name':brawl.find('img')['alt'],
+                    'trophies':int(brawl.find_all('div')[-1].text),
+                    'img_url':brawl.find('img')['src']
+                })
 
         for brawl in brawlers:
             diff = brawl['trophies']%25

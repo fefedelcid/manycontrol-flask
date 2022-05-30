@@ -1,46 +1,35 @@
 from .app import app
 from flask import render_template, jsonify
-from brawlstats import Client
-from brawlstats import Forbidden
 from requests import get
+from bs4 import BeautifulSoup
 from math import ceil
-from os import environ
 
-key = environ['BS_TOKEN']
 
-cli = Client(key)
-api_url = "https://api.brawlapi.com/v1/brawlers/"
+api_url = "https://brawlify.com/stats/profile/"
 
 @app.route('/bs/<tag>', methods=['GET', ['POST']])
 def get_brawlers(tag):
+    req = get(api_url+tag)
+    bs = BeautifulSoup(req.content, 'html.parser')
+
     try:
-        profile = cli.get_profile(tag)
-    except Forbidden as err:
-        return jsonify({'message':err})
-    # guardo solo los que necesitan + de una victoria para dar puntos estelares
-    brawlers = [brawl for brawl in profile.brawlers if brawl.trophies>493]
-    brawlers = sorted(brawlers, key=lambda x: x.trophies)
-    # listado de brawlers con +493 trofeos ordenados de mayor a menor
-    brawlers.reverse()
-    response = []
+        brawlers = [{
+            'name':brawl.find('img')['alt'],
+            'trophies':int(brawl.find_all('div')[-1].text),
+            'img_url':brawl.find('img')['src'],
+        } for brawl in bs.find_all('a', class_='brawlerBlock') if int(brawl.find_all('div')[-1].text)>=493]
 
-    for brawl in brawlers:
-        diff = brawl.trophies%25
-        at_end = brawl.trophies-diff-1 if brawl.trophies>525 else brawl.trophies-diff
-        response.append({
-            'img': get(api_url+str(brawl.id)).json()['imageUrl2'],
-            'name': brawl.name,
-            'trophies': brawl.trophies,
-            'next_goal': brawl.trophies+25-diff,
-            'remaining_wins': ceil((25-diff)/8),
-            'trophies_at_end': at_end,
-            'trophies_losted': brawl.trophies-at_end
-            })
-    return jsonify(sorted(response, key=lambda x: x['remaining_wins']))
+        for brawl in brawlers:
+            diff = brawl['trophies']%25
+            at_end = brawl['trophies']-diff-1 if brawl['trophies']>525 else brawl['trophies']-diff
+            brawl['next_goal'] = brawl['trophies']+25-diff
+            brawl['remaining_wins'] = ceil((25-diff)/8)
+            brawl['trophies_at_end'] = at_end
+            brawl['trophies_losted'] = brawl['trophies']-at_end
 
-
-
-
+        return jsonify(brawlers)
+    except:
+        return jsonify('message':'invalid tag')
 
 
 @app.route('/bs')

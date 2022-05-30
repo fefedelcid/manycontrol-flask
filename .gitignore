@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 valid_keys.json
+tests/
 
 # C extensions
 *.so

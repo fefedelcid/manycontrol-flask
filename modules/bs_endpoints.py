@@ -11,8 +11,9 @@ api_url = "https://brawlify.com/stats/profile/"
 def get_brawlers(tag):
     req = get(api_url+tag)
     bs = BeautifulSoup(req.content, 'html.parser')
-    profile_color = bs.find('div', class_='profile-top')
-    profile_color = profile_color.find('h1')['style'].replace('color', 'background-color')
+    profile = bs.find('div', class_='profile-top')
+    profile = profile.find('h1')
+    profile_color = profile['style'].replace('color', 'background-color')
 
     brawlers = []
     for brawl in bs.find_all('a', class_='brawlerBlock'):
@@ -39,7 +40,7 @@ def get_brawlers(tag):
         brawl['trophies_losted'] = brawl['trophies']-at_end
 
     if len(brawlers)>0:
-        return render_template('bs/calculator.html', brawlers=brawlers, bg=profile_color)
+        return render_template('bs/calculator.html', brawlers=brawlers, bg=profile_color, profile=profile.text)
 
     return jsonify({'message':'invalid tag'})
 

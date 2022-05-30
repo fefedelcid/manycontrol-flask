@@ -40,7 +40,7 @@ def get_brawlers(tag):
         brawl['trophies_losted'] = brawl['trophies']-at_end
 
     if len(brawlers)>0:
-        return render_template('bs/calculator.html', brawlers=brawlers, bg=profile_color, profile=profile.text)
+        return render_template('bs/calculator.html', brawlers=brawlers, bg=profile_color, tag=tag, profile=profile.text)
 
     return jsonify({'message':'invalid tag'})
 

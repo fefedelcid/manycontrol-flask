@@ -8,8 +8,7 @@
 }
 
 .important {
-  color: lightgreen;
-  background-color: black;
+  display: inline-flex;
   font-weight: 600;
   margin: 5px 5px;
 }
@@ -31,4 +30,8 @@
 #over figure {
   margin: auto;
   display: inline-block;
+}
+
+.is-flex {
+  display: inline-flex;
 }

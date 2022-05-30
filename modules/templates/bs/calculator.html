@@ -1,18 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
+<div class="columns is-mobile">
   {% for brawl in brawlers %}
-  <div class="block">
-    <section class="section small-wide">
-      <figure class="image is-48x48">
-        <img src="{{ brawl['img_url'] }}" alt="{{ brawl['name'] }}" class="is-rounded">
-        <p class="subitle is-2">{{ brawl['name'].capitalize() }}</p>
-      </figure>
-      <p class="title is-3">Trofeos actuales: {{ brawl['trophies'] }}</p>
-      <p class="subtitle is-4">Necesitas ganar {{ brawl['remaining_wins'] }} partidas para llegar a {{ brawl['next_step'] }}</p>
-      <p class="subtitle is-5">Siguiente meta: {{ brawl['next_goal'] }}</p>
-    </section>
+  <div class="column has-text-centered">
+    <figure class="image is-64x64 is-flex">
+      <img src="{{ brawl['img_url'] }}" alt="{{ brawl['name'] }}">
+      <p class="important">{{ brawl['trophies'] }}</p>
+    </figure>
+    <div class="block">
+      <p class="subtitle">Siguiente meta: <b>{{ brawl['next_goal'] }}</b></p>
+      <p class="subtitle">Necesitas ganar {{ brawl['remaining_wins'] }} partidas para llegar a {{ brawl['next_step'] }}</p>
+    </div>
   </div>
   {% endfor %}
 </div>

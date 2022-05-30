@@ -3,17 +3,17 @@
 {% block content %}
 <div class="container has-text-centered width-75">
   {% for brawl in brawlers %}
-  <div class="block" style="{{ bg }}">
+  <div class="bs-container" style="{{ bg }}">
     <figure class="image is-64x64 is-flex">
-      <img src="{{ brawl['img_url'] }}" alt="{{ brawl['name'] }}">
+      <img class="brawl" src="{{ brawl['img_url'] }}" alt="{{ brawl['name'] }}">
       <figure class="image is-24x24 is-flex">
         <img src="https://cdn.brawlify.com/icon/trophy.png" alt="Trophies">
         <span>{{ brawl['trophies'] }}</span>
       </figure>
     </figure>
     <div class="separator" style="text-align:left;">
-      <p class="subtitle">Siguiente meta: <b>{{ brawl['next_goal'] }}</b></p>
-      <p>Necesitas ganar {{ brawl['remaining_wins'] }} partidas para llegar a {{ brawl['next_step'] }} trofeos</p>
+      <p>Siguiente meta: <b>{{ brawl['next_goal'] }}</b></p>
+      <p>Necesitas ganar <b>{{ brawl['remaining_wins'] }}</b> partidas para llegar a <b>{{ brawl['next_step'] }}</b> trofeos</p>
     </div>
   </div>
   {% endfor %}

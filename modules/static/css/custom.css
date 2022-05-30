@@ -1,3 +1,6 @@
+body {
+  padding: 10px;
+}
 .has-margin-top { margin-top:5px; }
 
 .small-wide { max-width:400px; }
@@ -35,4 +38,16 @@
 
 .is-flex {
   display: inline-flex;
+  vertical-align: middle;
+}
+
+.bs-container {
+  border: .7px solid black .375em;
+  color: black;
+  margin: 15px auto;
+}
+
+.brawl {
+  border-top-left-radius: .375em;
+  margin: 0px 10px 0px 0px;
 }

@@ -24,7 +24,7 @@
 
 <script type="text/javascript">
   var get_trophies = ()=>{
-    tag = document.getElementById("bs-tag").value
+    tag = document.getElementById("bs-tag").value.replace("#", "")
     window.location.href = "/bs/"+tag
   }
 </script>

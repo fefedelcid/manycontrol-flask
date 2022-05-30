@@ -2,9 +2,9 @@
 
 {% block content %}
 <div class="container has-text-centered width-75">
-  <h1 class="very-important" style="{{ bg }}">{{ profile }}</h1>
+  <h1 class="very-important" style="{{ bg.replace('background-', '') }}">{{ profile }}</h1>
   {% for brawl in brawlers %}
-  <div class="bs-container" style="{{ bg.replace('background-', '') }}">
+  <div class="bs-container" style="{{ bg }}">
     <figure class="image is-64x64 is-flex">
       <img class="brawl" src="{{ brawl['img_url'] }}" alt="{{ brawl['name'] }}">
       <figure class="image is-24x24 is-flex">

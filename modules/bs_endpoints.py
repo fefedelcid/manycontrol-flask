@@ -1,6 +1,7 @@
 from .app import app
 from flask import render_template, jsonify
 from brawlstats import Client
+from brawlstats import Forbidden
 from requests import get
 from math import ceil
 from os import environ
@@ -12,7 +13,10 @@ api_url = "https://api.brawlapi.com/v1/brawlers/"
 
 @app.route('/bs/<tag>', methods=['GET', ['POST']])
 def get_brawlers(tag):
-    profile = cli.get_profile(tag)
+    try:
+        profile = cli.get_profile(tag)
+    except Forbidden as err:
+        return jsonify({'message':err})
     # guardo solo los que necesitan + de una victoria para dar puntos estelares
     brawlers = [brawl for brawl in profile.brawlers if brawl.trophies>493]
     brawlers = sorted(brawlers, key=lambda x: x.trophies)

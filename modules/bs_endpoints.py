@@ -7,7 +7,7 @@ from math import ceil
 
 api_url = "https://brawlify.com/stats/profile/"
 
-@app.route('/bs/<tag>', methods=['GET', ['POST']])
+@app.route('/bs/<tag>', methods=['GET', 'POST'])
 def get_brawlers(tag):
     req = get(api_url+tag)
     bs = BeautifulSoup(req.content, 'html.parser')

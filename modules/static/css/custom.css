@@ -23,12 +23,12 @@
 .title {
   display: block;
   text-align: center;
-  margin: 50px auto;
+  margin: 0px auto;
   font-weight: 700;
   font-size: 2em;
 }
 
-#over img {
+#over figure {
   margin: auto;
   display: inline-block;
 }
